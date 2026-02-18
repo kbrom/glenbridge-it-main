@@ -1,0 +1,87 @@
+<html>
+<head>
+    <title>Glenbridge IT Website Status</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        .status {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 4px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        .actions {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+        .actions h2 {
+            margin-top: 0;
+        }
+        .task {
+            margin-bottom: 10px;
+        }
+        .complete {
+            color: #28a745;
+        }
+        .incomplete {
+            color: #dc3545;
+        }
+        .note {
+            font-style: italic;
+            color: #6c757d;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Glenbridge IT Website Status</h1>
+    
+    <div class="status">
+        WEBSITE PARTIALLY OFFLINE
+    </div>
+    
+    <p>The Glenbridge IT website shutdown process has been partially completed. The content has been replaced with a maintenance page, but the CloudFront distributions could not be disabled due to permission restrictions.</p>
+    
+    <div class="actions">
+        <h2>Actions Completed:</h2>
+        <div class="task complete">✅ Created maintenance page</div>
+        <div class="task complete">✅ Uploaded maintenance page to S3 bucket</div>
+        <div class="task complete">✅ Removed all existing website content from S3</div>
+        <div class="task complete">✅ Invalidated CloudFront cache for both distributions</div>
+    </div>
+    
+    <div class="actions">
+        <h2>Actions Pending (Require Additional Permissions):</h2>
+        <div class="task incomplete">❌ Disable CloudFront distribution E1M0LVBVUJYM8E</div>
+        <div class="task incomplete">❌ Disable CloudFront distribution EB7YJLUKK1801</div>
+    </div>
+    
+    <h2>Current Implementation:</h2>
+    <p>The website at <a href="https://glenbridge-it.com">https://glenbridge-it.com</a> now displays a maintenance page. All original content has been removed from the S3 bucket, but the CloudFront distributions are still active.</p>
+    
+    <h2>To Complete the Shutdown:</h2>
+    <p>An administrator with proper CloudFront permissions needs to disable the following CloudFront distributions:</p>
+    <ul>
+        <li>Distribution ID: E1M0LVBVUJYM8E (Domain: d1em9qqschc4wp.cloudfront.net)</li>
+        <li>Distribution ID: EB7YJLUKK1801 (Domain: drjipk52kzvc9.cloudfront.net)</li>
+    </ul>
+    
+    <div class="note">
+        <p>Last updated: Wed Feb 18 05:20:15 UTC 2026</p>
+    </div>
+</body>
+</html>
