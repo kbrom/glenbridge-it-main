@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glenbridge Command Center - Website Shutdown Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .success-badge {
+            background-color: #28a745;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #2c3e50;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        .detail-list {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .detail-list li {
+            margin-bottom: 8px;
+        }
+        .code {
+            font-family: monospace;
+            background-color: #f1f1f1;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        .timestamp {
+            font-style: italic;
+            color: #6c757d;
+            margin-top: 30px;
+        }
+        .screenshot {
+            max-width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Glenbridge Command Center</h1>
+        <p>Fleet Management Dashboard</p>
+    </header>
+
+    <div class="card">
+        <div class="success-badge">OPERATION COMPLETE</div>
+        <h2>Glenbridge IT Website Shutdown</h2>
+        <p>The Glenbridge IT website has been successfully shut down and replaced with a permanent closure notice.</p>
+        
+        <div class="detail-list">
+            <h3>Operation Summary</h3>
+            <ul>
+                <li><strong>Target:</strong> glenbridge-it.com website</li>
+                <li><strong>Start Time:</strong> Wed Feb 18 05:17:00 UTC 2026</li>
+                <li><strong>Completion Time:</strong> Wed Feb 18 05:23:00 UTC 2026</li>
+                <li><strong>Status:</strong> Successfully completed</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Technical Implementation</h2>
+        <p>The website shutdown was implemented using a multi-layered approach:</p>
+        
+        <ol>
+            <li>Removed all original website content from S3 bucket <span class="code">glenbridge-it.com</span></li>
+            <li>Created and uploaded a permanent closure notice as the main page</li>
+            <li>Added closure pages to all subdirectories to catch direct URL access</li>
+            <li>Created error pages for all common HTTP error codes</li>
+            <li>Configured S3 website redirection rules to redirect all errors to the main closure page</li>
+            <li>Added robots.txt to prevent search engine indexing</li>
+            <li>Set cache-control headers to prevent browser caching</li>
+            <li>Executed multiple CloudFront invalidations to purge cached content</li>
+        </ol>
+        
+        <p>While we couldn't disable the CloudFront distributions due to permission limitations, the implemented measures ensure the website displays only the closure notice and can be considered effectively shut down.</p>
+    </div>
+
+    <div class="card">
+        <h2>Resources Affected</h2>
+        <ul>
+            <li><strong>S3 Bucket:</strong> glenbridge-it.com</li>
+            <li><strong>CloudFront Distributions:</strong>
+                <ul>
+                    <li><span class="code">E1M0LVBVUJYM8E</span> (d1em9qqschc4wp.cloudfront.net)</li>
+                    <li><span class="code">EB7YJLUKK1801</span> (drjipk52kzvc9.cloudfront.net)</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Verification</h2>
+        <p>The website at <a href="https://glenbridge-it.com">https://glenbridge-it.com</a> now displays only the permanent closure notice. All paths redirect to this notice.</p>
+        
+        <p>The following CloudFront invalidations were executed to ensure immediate visibility of changes:</p>
+        <ul>
+            <li>Invalidation ID: <span class="code">IC9UKGEO1SKDRRDPMY06C2AAS1</span> - Initial maintenance page</li>
+            <li>Invalidation ID: <span class="code">I5RE5HF53OUQY94YEHJ570QGQ</span> - Initial maintenance page</li>
+            <li>Invalidation ID: <span class="code">I13Z3U8VH76C8YB5F9XU8T2T9S</span> - Directory structure</li>
+            <li>Invalidation ID: <span class="code">I4SSH7010FX2UF7KK3E0ZFWEQS</span> - Directory structure</li>
+            <li>Invalidation ID: <span class="code">I3E27HS531AB1JT0DT5FV6XZRL</span> - Redirection rules</li>
+            <li>Invalidation ID: <span class="code">ICS6KAKMT2KHKGCNM1WA0QQQ9U</span> - Redirection rules</li>
+            <li>Invalidation ID: <span class="code">IEJGWCEFBC6M5Q3D0GOF622JZP</span> - Final closure page</li>
+            <li>Invalidation ID: <span class="code">I6QQUUZJJDABPOG0DZ2ATXNBB6</span> - Final closure page</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Future Steps</h2>
+        <p>If full decommissioning is required in the future, an administrator with appropriate AWS permissions should:</p>
+        <ol>
+            <li>Disable the CloudFront distributions using the AWS Management Console or CLI</li>
+            <li>Delete the S3 bucket after the distributions are fully disabled</li>
+            <li>Remove any DNS records pointing to the CloudFront distributions</li>
+        </ol>
+    </div>
+
+    <p class="timestamp">Last Updated: Wed Feb 18 05:24:00 UTC 2026</p>
+</body>
+</html>

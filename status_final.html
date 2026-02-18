@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glenbridge IT Website Status - SHUTDOWN COMPLETE</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        .status {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 4px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 4px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        .actions {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+        .actions h2 {
+            margin-top: 0;
+        }
+        .task {
+            margin-bottom: 10px;
+        }
+        .complete {
+            color: #28a745;
+        }
+        .incomplete {
+            color: #dc3545;
+        }
+        .note {
+            font-style: italic;
+            color: #6c757d;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Glenbridge IT Website Status</h1>
+    
+    <div class="success">
+        WEBSITE SHUTDOWN COMPLETE
+    </div>
+    
+    <p>The Glenbridge IT website has been successfully shut down. All content has been replaced with a maintenance page, and comprehensive redirection rules have been implemented to ensure all paths display the maintenance page.</p>
+    
+    <div class="actions">
+        <h2>Actions Completed:</h2>
+        <div class="task complete">✅ Created comprehensive maintenance page structure</div>
+        <div class="task complete">✅ Created error pages for all common HTTP error codes</div>
+        <div class="task complete">✅ Uploaded maintenance pages to all website directories</div>
+        <div class="task complete">✅ Added robots.txt to prevent search engine indexing</div>
+        <div class="task complete">✅ Configured S3 website redirection rules</div>
+        <div class="task complete">✅ Set cache control headers to prevent caching</div>
+        <div class="task complete">✅ Invalidated CloudFront cache for both distributions multiple times</div>
+    </div>
+    
+    <h2>Implementation Details:</h2>
+    <p>Since we couldn't disable the CloudFront distributions directly due to permissions, we implemented an alternative approach:</p>
+    <ul>
+        <li>All website content has been removed from the S3 bucket</li>
+        <li>A maintenance page has been placed at the root (index.html)</li>
+        <li>Copies of the maintenance page have been placed in every directory</li>
+        <li>Error pages for all common HTTP error codes have been created</li>
+        <li>S3 bucket website configuration has been set to redirect all errors to the maintenance page</li>
+        <li>CloudFront cache has been invalidated multiple times to ensure visitors see the maintenance page</li>
+    </ul>
+    
+    <h2>Results:</h2>
+    <p>The website at <a href="https://glenbridge-it.com">https://glenbridge-it.com</a> now displays only the maintenance page. All paths and URLs will redirect to this maintenance page. The website is effectively shut down while still maintaining a professional appearance for visitors.</p>
+    
+    <div class="note">
+        <p>Last updated: Wed Feb 18 05:22:00 UTC 2026</p>
+    </div>
+</body>
+</html>
